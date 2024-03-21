@@ -1,1 +1,9 @@
+body{
+    background-color: rgb(241, 233, 224);
+}
 
+h1{
+    background-color: rgb(216, 166, 219); 
+    color: #eeeeee; 
+     /*폰트컬러아니고 그냥 컬러임.  */
+}
