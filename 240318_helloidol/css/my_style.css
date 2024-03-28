@@ -54,3 +54,22 @@ li:nth-child(2n-1){     /*홀수번째 자식인데 걔가 li인 아이*/
 li:nth-child(odd){      /*홀수번째 자식인데 걔가 li인 아이*/
     color: purple;
 }
+
+.korea{
+    background-color: gold;
+}
+
+.japan{
+    background-color: silver;
+}
+
+.incheon{
+    background-color: aqua;
+}
+
+#leader{
+    background-color: hotpink;
+}
+[type="text"]{      /*속성="값"*/
+    background-color: darkorange;
+}
