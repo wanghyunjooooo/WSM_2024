@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Single+Day&display=swap');
+
+/* css Variables - 변수 */
+:root {
+    /* color */
+    --primary-color : hsl(160, 100%, 25%);  /* h는 컬러, s는 채도, l은 밝기 */
+    --secondary-color : hsl(339, 77%, 59%); /* 밝기 조절을 통해 일관된 색상을 만들어낼 수 있음 */
+    --third-color : hsl(160, 100%, 50%);
+
+    --body-color : #FFF;
+
+    /* font */
+    --body-font : 'Single Day', sans-serif;
+    --h1-font-size : 2rem; /* 크롬 > 설정 > 글자 크기 : 중간 (기본값)일 때, 대문자 M이 너비 = 1rem (16px)  */
+    --h2-font-size : 1.5rem; /* 24px */
+    --h3-font-size : 1.25rem; /* 20px */ 
+    --normal-font-size : 1rem;
+    --small-font-size : 0.8rem;
+    --smaller-font-size : 0.6rem;
+
+    --font-thin : 200;
+    --font-regular : 400;
+    --font-thick : 700;
+    
+    /* z-index */
+    --z-index : 100;
+
+    /* nav */
+    --nav-height : 44px;
+}
+
+body {
+    background-color: var(--body-color);
+    font-family : var(--body-font);
+}
+
+body > header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+nav {
+    height: var(--nav-height);
+    background-color: var(--primary-color);
+}
+
+.nav.container {
+    display: flex;  /* 기본값 : 가로로 배치 */ 
+    justify-content: space-between; /* 메인축으로 양쪽 정렬 */
+    align-items: center; /* 교차축으로 가운데 정렬 */
+    padding: 0 40px;
+    font-size: var(--h2-font-size);
+    
+}
+
+.nav-logo {
+    color: #fff;
+}
+
+.nav-link {
+    color: #fff;
+}
+
+.nav-toggle {
+    display: none;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    column-gap: 40px;
+}
+
+
+/* mobile */
+
+@media screen and (max-width: 600px){
+    .nav.container {
+        padding: 0 20px; /* shrink left/right padding */
+    }
+
+    .nav-list {
+        position: absolute; /* nav 공간 안에 있던 아이들을 위치 탈출 */
+        top: calc(var(--nav-height) - 144px);    /*calc(수치 연산자 수치)*/
+        right: 0;
+        left: 0;
+
+        flex-direction: column;
+        background-color: hsla(200, 100%, 25%, 0.6); /* a는 opacity */
+        z-index: -1;    /*nav 뒤로 보내자*/
+
+        transition: all 1s ease-in-out;
+    }
+
+    .nav-item {
+        padding: 0.5rem 1rem;
+        border-bottom: 2px solid white; /* underline at link */
+        text-align: center;
+        width: 100%; 
+    }
+
+    .nav-link {
+        display: block; /* fit at box content */
+    }
+    .nav-toggle {
+        display: block; /* 햄버거 메뉴 살리기 */
+    }
+
+    .show-menu{
+        top : var(--nav-height);
+
+    }
+}
