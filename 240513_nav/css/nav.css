@@ -35,7 +35,7 @@ body {
 }
 
 body > header {
-    position: absolute;
+    position: fixed;    /*스크롤 해도 웹 브라우저의 이 위치에 고정*/
     top: 0;
     right: 0;
     left: 0;
@@ -90,8 +90,8 @@ nav {
         flex-direction: column;
         background-color: hsla(200, 100%, 25%, 0.6); /* a는 opacity */
         z-index: -1;    /*nav 뒤로 보내자*/
-
         transition: all 1s ease-in-out;
+        backdrop-filter: blur(70px);
     }
 
     .nav-item {
