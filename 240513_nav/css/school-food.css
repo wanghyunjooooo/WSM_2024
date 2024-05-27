@@ -67,11 +67,11 @@
         margin: 0 auto;
     }
 
-    .menu-food-menu:nth-child(odd){ /*홀수 번째 자식 요소를 왼쪽으로 정렬*/
+    .menu-food:nth-child(odd){ /*홀수 번째 자식 요소를 왼쪽으로 정렬*/
         text-align: left;
     }
 
-    .menu-food-menu:nth-child(even){ /*짝수 번째 자식 요소를 오른쪽으로 정렬*/
+    .menu-food:nth-child(even){ /*짝수 번째 자식 요소를 오른쪽으로 정렬*/
         text-align: right;
     }
 

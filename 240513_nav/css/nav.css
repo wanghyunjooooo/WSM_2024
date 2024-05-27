@@ -55,7 +55,7 @@ nav {
     
 }
 
-.nav-logo {
+.nav-logo > a{
     color: #fff;
 }
 
@@ -91,7 +91,7 @@ nav {
         background-color: hsla(200, 100%, 25%, 0.6); /* a는 opacity */
         z-index: -1;    /*nav 뒤로 보내자*/
         transition: all 1s ease-in-out;
-        backdrop-filter: blur(70px);
+        backdrop-filter: blur(8px);
     }
 
     .nav-item {
