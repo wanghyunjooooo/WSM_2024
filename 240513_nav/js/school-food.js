@@ -44,10 +44,59 @@ let url = `${URL}?Type=json&KEY=${API_KEY}\
     //error 있다면 catch 함수 호출되고, 에러 출력하자
    fetch(url)
    .then((response) => response.json())
-   .then((data) => console.log(data))
+   .then((data) => setSchoolFoodMenu(data))
    .catch((error) => console.error(error));
 }
 
-getSchoolFoodMenu("20240520");
 
 //받아온 급식 정보 웹사이트에 표시하자
+const setSchoolFoodMenu = (data) => {
+    //breakfastMenuUL 가져오자
+    //lunchMenuUL 가져오자
+    //dinnerMenuUL 가져오자
+    const breakfastMenuUL = document.getElementsByClassName("menu breakfast")[0];
+    const lunchMenuUL = document.getElementsByClassName("menu lunch")[0];
+    const dinnerMenuUL = document.getElementsByClassName("menu dinner")[0];
+
+    const menuData = data["mealServiceDietInfo"][1]["row"];
+    console.log(menuData);
+    
+    
+    
+    //data에서 메뉴를 가져오자(조식,중식,석식)
+    //하나씩 돌면서 clean 작업하자
+    menuData.forEach((menuRow) => {
+        let cleandeMenu = menuRow.DDISH_NM;
+        //(...) 없애자
+        cleanedMenu = cleanedMenu.replace(/\([^\)]*\)/g, "");   //소괄호 연문자로 시작~ 소괄호 닫은 문자를 제외한 문자들 0~n개, 소괄호 닫는 문자
+        //. 없애자
+        cleanedMenu = cleanedMenu.replace(/\./g,"");    //.(점) 문자 찾아서 " " 대체
+        
+        //<br/> 태그로 나누자
+        //빈칸 없애자
+        //<li class = "menu-food"> 가져온 메뉴 음식씩 </li>
+    });
+
+    //조식의 경우 , breakastMenuUL에 넣자
+    //중식의 경우 , lunchMenuUL에 넣자
+    //석식의 경우 , dinnerMenuUL에 넣자 js -> HTML
+
+
+    // console.log("setSchoolFoodMenu",data);
+    //console.log("중식 : ",data["mealServiceDietInfo"][1]["row"][1]["DDISH_NM"]);
+    
+    // const TEMP_JSON = {
+    //     'name' : '변우석',
+    //     'height' : '189cm',
+    //     'filmography' : ['선재업고튀어','청춘기록'],
+    // }
+    // console.log(TEMP_JSON.name);
+    // console.log(TEMP_JSON["name"]);
+    // console.log(TEMP_JSON.height);
+    // console.log(TEMP_JSON["height"]);
+    // console.log(TEMP_JSON.filmography);
+    // console.log(TEMP_JSON["filmography"]);
+    
+}
+
+    changeDate(0);

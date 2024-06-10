@@ -3,55 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
+    <title>navbar</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/school-food.css">
 </head>
 <body>
-    <h1>왕현주</h1>
-    <h2>왕현주2</h2>
-    <h3>왕현주3</h3>
-    <h4>왕현주4</h4>
-    <h5>왕현주5</h5>
-    <h6>왕현주6</h6>
-    
-    <hr>
-    <ul>
-        <li>주예설</li>
-        <li>이진현</li>
-        <li>김예나</li>
-    </ul>
-    <ol>
-        <li>송현주</li>
-        <li>김선응</li>
-        <li>배말랭</li>
-        <li>황룡갑</li>
-        <li>조현종</li>
-        <li>육은길</li>
-        <li>박성순</li>
-        <li>홍또기</li>
-        <li>배진우</li>
-        <li>송현찬</li>
-    </ol>
+    <header>
+        <nav class="nav container">
+            <!-- 로고 -->
+            <div class="nav-logo">
+                <a href="#"><i class="bi bi-bank2"></i></a>
+            </div>
+            <!-- 학교,매점,기숙사 -->
+           <ul class="nav-list">
+            <li class="nav-item"><a href="index.html" class="nav-link">급식</a></li>
+            <li class="nav-item"><a href="school-market.html" class="nav-link">매점</a></li>
+            <li class="nav-item"><a href="dormitory.html" class="nav-link">기숙사</a></li>
+           </ul>
 
-    <hr>
-    <a href="//google.com">구글</a> 
-    <!-- //는 절대주소 -->
+            <!-- 햄버거 메뉴 or 닫기버튼 -->
+            <div class="nav-toggle" id="nav-toggle">
+                <i class="bi bi-list"></i>
+            </div>
+        </nav>
+    </header>
+    <main id="school-food" class="container">
+        <section class="button-container">
+            <button class="btn prev-date" onclick="changeDate(-1)">
+                <i class="bi bi-chevron-compact-left"></i>
 
-    <hr>
-    <form action="">
-        <input type="text" name="txt">
-        <input type="password" name="pw" id="">
-        <input type="button" value="버튼">
-        <input type="submit" value="서브밑">
-        <input type="checkbox" name="cd" id="탕"><label for="탕" id="">탕후루</label> 
-        <input type="checkbox" name="cd" id="마라"><label for="마라" id="">마라탕</label>
-        <input type="checkbox" name="cd" id="면"> <label for="면" id="">자장면</label>
-        <input type="checkbox" name="cd" id="짬"><label for="짬" id="">짬뽕</label>
-        <input type="radio" name="rd" id="박"> <label for="박">박성래</label>
-        <input type="radio" name="rd" id="고"><label for="고">고낙은</label>
-        <input type="radio" name="rd" id="우"><label for="우">우호식</label>
-        <!-- 체크박스는 중복 선택 가능 라디오는 중복 선택 불가능 -->
-
-    </form>
-
+            </button>
+            <header class="school-food-title">🍚화요일의 메뉴🍚</header>
+            <button class="btn next-date" onclick="changeDate(1)">
+                <i class="bi bi-chevron-compact-right"></i>
+            </button>
+        </section>
+        <section class="menu-container">
+            <article class="school-food-menu">
+                <h2 class="title">조식</h2>
+                <ul class="menu breakfast">
+                    <li class="menu-food">흰쌀밥</li>
+                    <li class="menu-food">육개장</li>
+                    <li class="menu-food">오리주물럭</li>
+                    <li class="menu-food">부추겉절이</li>
+                    <li class="menu-food">깍두기</li>
+                </ul>
+            </article>
+            <article class="school-food-menu">
+                <h2 class="title">중식</h2>
+                <ul class="menu lunch">
+                    <li class="menu-food">흰쌀밥</li>
+                    <li class="menu-food">육개장</li>
+                    <li class="menu-food">오리주물럭</li>
+                    <li class="menu-food">부추겉절이</li>
+                    <li class="menu-food">깍두기</li>
+                </ul>
+            </article>
+            <article class="school-food-menu">
+                <h2 class="title">석식</h2>
+                <ul class="menu dinner">
+                    <li class="menu-food">흰쌀밥</li>
+                    <li class="menu-food">육개장</li>
+                    <li class="menu-food">오리주물럭</li>
+                    <li class="menu-food">부추겉절이</li>
+                    <li class="menu-food">깍두기</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+    <script src = "js/nav.js"></script>
+    <script src="js/school-food.js"></script>
 </body>
 </html>
