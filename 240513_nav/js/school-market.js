@@ -1,6 +1,7 @@
 //data.json -> js -> HTML
+let allData;
 
-const setData = (data) => {
+const showData = (data) => {
     let productContainerString = "";
     //data를 하나씩 꺼내서
     data.forEach(element => {
@@ -17,6 +18,10 @@ const setData = (data) => {
     productContainerDiv.innerHTML = productContainerString;
 }
 
+const setData = (data) => {
+    allData = data;
+    showData(data);
+}
 
 const getData = () => {
     const filename = 'js/data.json';
@@ -27,4 +32,13 @@ const getData = () => {
 
 }
 
+
 getData();
+
+const searchData = (query) => {
+    if(query === " ") showData(allData);    //아무것도 입력하지 않으면 , 전체 data 보여주자
+    //전체 data에서 하나 꺼내어 name에 query가 있는지 확인하자
+    let data = allData.filter((oneData) => oneData["name"].includes(query) || oneData["category"].includes(query)); 
+    showData(data);
+
+}
