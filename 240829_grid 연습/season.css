@@ -1,0 +1,32 @@
+.container{
+    width: 800px;
+    height: 600px;
+    display:grid;
+    grid-template-columns:30% 70%; /*1fr 1fr*/ /*reapeat (1,2fr)*/
+    grid-template-rows: 40% 60%;
+}
+.item{
+    border: 1px solid gray;
+    display:grid;
+    place-items: center;   
+    /* display: flex;
+    justify-content:center;
+    align-items:center; */
+}
+
+.item:first-child{
+    background-color: aquamarine;
+}
+
+.item:nth-child(2){
+    background-color: deeppink;
+}
+
+.item:nth-child(3){
+    background-color: brown;
+}
+
+.item:last-child{
+    background-color: orange;
+}
+
