@@ -1,0 +1,68 @@
+
+.container{
+    width: 800px;
+    height: 600px;
+    display: grid; /*열 6,행 11*/
+    grid-template-columns: 50px repeat(5,1fr);/*1fr 1fr 1fr 1fr 1fr*/
+}
+
+.item {
+    border: 1px solid gray;
+    display: grid;
+    place-items: center;
+    color: darkgreen;
+    font-weight: bold;
+}
+
+.first-row{
+    background-color: orange;
+}
+
+/* 
+.item:nth-child(6n+7) {
+    background-color:moccasin;
+} */
+
+.time{
+    background-color: moccasin;
+}
+
+.mon-wsm{
+    grid-row: span 2;   
+    /* grid-row-start: 6;
+    grid-row-end: 8;
+    grid-column-start: 2;
+    grid-column-end: 3; */
+}
+
+.tus-wsm{
+    grid-row: span 2;
+}
+
+.wed-wsm{
+    grid-row: span 2;
+}
+
+.thu-wsm{
+    grid-row: span 2;
+}
+
+.thu-cote{
+    grid-row: span 2;
+}
+
+.fri-java{
+    grid-row:span 2;
+}
+
+.fri-sun{
+    grid-row: span 2;
+}
+
+.bang{
+    grid-row: span 2;
+}
+
+.bang-2{
+    grid-row: span 2;
+}
