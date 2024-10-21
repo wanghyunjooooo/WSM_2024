@@ -1,49 +1,46 @@
-
-main{
-    margin: 0 auto; /*1. 가운데로 먼저 맞추자*/
-    margin-top: calc(var(--nav-height) + 40px);    /*2. 위에서 띄우자*/
-    font-size: var(--h2-font-size);
+main {
+    margin: 0 auto; /*1. 가운데 맞추자*/
+    margin-top: calc(var(--nav-height) + 40px); /*2. 위에서 띄우자*/
 }
+
 #dormitory{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: min(100%, 600px);    /*브라우저 넙가 600px 초과면 , 600px, 미만이면 그 크기*/
+    /* align-items: center; */
+    width: min(100%, 600px); /*위 아래꺼가 같은 뜻임.(시험)*/ /*브라우저 너비가 600px 초과면 600px, 미만이면 그 크기*/
 }
-
-#dormitory > h1{
+#dormitory > h1 {
     font-size: var(--h1-font-size);
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 40px; 
 }
-
-#dormitory #selection-container{
-    margin: 0 outo;
+#dormitory #selection-container {
+    margin: 0 auto; /*수평 가운데로*/
     margin-bottom: 80px;
     font-size: var(--h2-font-size);
-    width: 400px;
-    padding: 5px 10px;
     display: flex;
+    width: 330px;
+    padding: 5px 10px;
     justify-content: center;
     column-gap: 10px;
     background-color: #a0d49c;
     border-radius: 40px;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 25%);
+    box-shadow: 0 2px 2px rgb(0, 0, 0,25%);
 }
 
 .selection-item{
-    padding: 5px 10px;
-    border-radius: 40px;
-    
-}
+    padding: 5px 5px;
+    column-gap: 40px;
 
+
+}
 .selection-item:hover,
-.select{
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 25%);
+.select {
     background-color: white;
     cursor: pointer;
+    border-radius: 40px;
+    box-shadow: 0 2px 2px rgb(0, 0, 0,25%); ;
 }
-
 #calendar{
     display: none;
 }
@@ -55,39 +52,32 @@ main{
 }
 
 #calendar-container{
+    display:grid;
+    grid-template-columns: repeat(7, 1fr);
     /* width: 100%;
     max-width: 600px; */
     height: 400px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(7,1fr);
     border-bottom: 1px solid #555;
     font-size: var(--h3-font-size);
 }
-
-
 .item{
     display: grid;
     place-items: center;
 }
-
 .week-name{
     font-weight: bold;
     color: #aaa;
     border-bottom: 1px solid #555;
 }
-
-.item:nth-child(7n+1){
-    color: crimson;
-}
-
-.item:nth-child(7n+7){
-    color: darkblue;
-}
-
-
 .other-month{
-    color: #ddd !important;
+    color: #ddd;
+}
+.item:nth-child(7n+7){
+    color: rgb(62, 62, 246);
+}
+.item:nth-child(7n+1){ 
+    color: crimson !important;
 }
 
 .flex-container{
@@ -95,18 +85,21 @@ main{
     justify-content: center;
     column-gap: 20px;
 }
-
-#dormitory select{
-    font-size: var(--h2-font-size);
+#dormitory select,
+#dormitory input{
+    font-size: var(--h3-font-size);
     border: none;
     border-radius: 20px;
     background-color: #f0f0f0;
     padding: 15px 20px;
 }
-
-.btn{
+.btn {
     font-size: var(--h2-font-size);
     padding: 5px 20px;
     margin-top: 20px;
     float: right;
+}
+
+#selection-washingmachine-time{
+    display: none;
 }

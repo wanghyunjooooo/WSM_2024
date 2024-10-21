@@ -2,78 +2,112 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>School Market Dormitory</title>
+    <title>navbar</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/dormitory.css">
-    <link rel="icon" type="images/png" href="images/icon.png">
+
 </head>
+
 <body>
     <header>
         <nav class="nav container">
-            <!-- 로고 -->
-            <div class="nav-logo">
-                <a href="#"><i class="bi bi-bank2"></i></a>
-            </div>
-            <!-- 학교,매점,기숙사 -->
-           <ul class="nav-list">
-            <li class="nav-item"><a href="index.html" class="nav-link">급식</a></li>
-            <li class="nav-item"><a href="css/dormitory.css" class="nav-link">매점</a></li>
-            <li class="nav-item"><a href="dormitory.html" class="nav-link">기숙사</a></li>
-           </ul>
-
-            <!-- 햄버거 메뉴 or 닫기버튼 -->
+            <!--로고-->
+            <a href="/" class="nav-logo">
+               <i class="bi bi-bank2"></i>
+            </a>
+            <!--학교, 매점, 기숙사-->
+            <!--<li class="nav-item"></li>-->
+            <ul class="nav-list container">
+                <li class="nav-item"><a href="index.html" class="nav-link">급식</a></li>
+                <li class="nav-item"><a href="school-market.html" class="nav-link">매점</a></li>
+                <li class="nav-item"><a href="dormitory.html" class="nav-link">기숙사</a></li>
+            </ul>
+            <!--햄버거 메뉴 or 닫기 버튼--> 
+            <!--header>nav.nav.container-->
             <div class="nav-toggle" id="nav-toggle">
                 <i class="bi bi-list"></i>
             </div>
         </nav>
     </header>   
+    
     <main id="dormitory">
         <h1>세탁기 예약하기</h1>
+
         <div id="selection-container">
             <div class="selection-item">요일 지정</div>
-        <div class="selection-item">시간 선택</div>
-        <div class="selection-item">호실 이름</div>
-    </div>
-    <div id="selection-washingmachine-time">
-        <!--시간 선택  -->
-            <select name="washingmachine" id="washingmachine">
-                <option value="">1번 세탁기</option>
-                <option value="">2번 세탁기</option>
-                <option value="">3번 세탁기</option>
-            </select>
-        <div class="flex-container">
-            <div class="selection-washingmachine">
+            <div class="selection-item">시간 선택</div>
+            <div class="selection-item">호실 이름</div>
+        </div>
+
+
+        <div id="calendar">
+            <div id="calendar-header">
+                <button id="prev-month">이전</button>
+                <h1></h1>
+                <button id="next-month">다음</button>
+            </div>
+            <div id="calendar-container">
+                
+            </div>
+        </div>
+
+        <div id="selection-washingmachine-time">
+            <!--시간선택-->
+            <div class="flex-container">
+                <div class="selection-washingmachine">
+                    
+                    <select name="washingmachine" id="washingmachine">
+                        <option value="1">1번 세탁기</option>
+                        <option value="2">2번 세탁기</option>
+                        <option value="3">3번 세탁기</option>
+                    </select>
+                </div>
                 <div class="selection-time">
-                    <select name="time" id="time">
+                    <!--select#time>option*3-->
+                    <select name="" id="time">
                         <option value="1">7시 ~ 8시 10분</option>
                         <option value="2">8시 10분 ~ 9시 20분</option>
                         <option value="3">9시 20분 ~ 10시 30분</option>
                     </select>
+
                 </div>
             </div>
+            <button class="btn">다음</button>
+
         </div>
-        <button class="btn">다음</button>
-    </div>
+
+        <div id="selection-room-name">
+            <!--호실이름-->
+            <div class="flex-container">
+                <div class="selection-room">
+                    <select name="room" id="room">
+                        <option value="401">401호</option>
+                        <option value="402">402호</option>
+                        <option value="403">403호</option>
+                        <option value="404">404호</option>
+                        <option value="405">405호</option>
+                        <option value="501">501호</option>
+                        <option value="502">502호</option>
+                        <option value="503">503호</option>
+                        <option value="504">504호</option>
+                        <option value="505">505호</option>  
+                    </select>
+                </div>
+                <div class="input-name">
+                    <!--select#time>option*3-->
+                   <input type="text" id="name" name="name" placeholder="이름을 써주세요">
+
+                </div>
+            </div>
+            <button class="btn">다음</button>
+        </div>
+    </main>
     
-    <div id="selection-room-name">
-        <!-- 호실 이름 -->
-    </div>
-    
-    <div id="calendar">
-        <div id="calendar-header">
-            <button id="prev-month">이전</button>
-            <h1></h1>
-            <button id="next-month">다음</button>
-        </div>
-        <div id="calendar-container">>
-        </div>
-    </div>
-  
-</main>
-<script src = "js/nav.js"></script>
-<script src="js/dormitory.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/dormitory.js"></script>
 </body>
 </html>
