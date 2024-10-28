@@ -1,3 +1,5 @@
+//seletion 3개 가져오자
+const selectionItemDivs = document.getElementsByClassName("selection-item");
 //각 페이지 요소 가져오기
 const calendarDiv = document.getElementById("calendar");
 const selectionWashingmachineTimeDiv = document.getElementById("selection-washingmachine-time");
@@ -11,6 +13,16 @@ const pageDivs = [calendarDiv,selectionRoomNameDiv,selectionWashingmachineTimeDi
 // boardDiv.style.display = "block";
 
 const setPage = (page) => {
+    //clear selection
+    for (const selectionItemDiv of selectionItemDivs){
+        selectionItemDiv.classList.remove("select");
+    }
+
+
+    //clear selection
+    selectionItemDivs[page-1].classList.add("select");
+    
+
     //clear pages
     pageDivs.forEach(pageDiv => {
         pageDiv.style.display = "none";
@@ -20,6 +32,5 @@ const setPage = (page) => {
     pageDivs[page-1].style.display = "block";   //1페이지가 calendar,2페이지가 swt, 3페이지가 srn, 4페이지가 board
 
 }
-
 setPage(1);
 
