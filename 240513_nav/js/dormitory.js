@@ -12,6 +12,39 @@ const pageDivs = [calendarDiv,selectionRoomNameDiv,selectionWashingmachineTimeDi
 // selectionRoomNameDiv.style.display= "block";
 // boardDiv.style.display = "block";
 
+let allData; //모든 초기화 정보 : 세탁기,시간,호실정보
+let weeklyReservation; //미리 요일별로 지정된 예약 정보
+let newReservation; //사용자가 입력하고 있는 예약 정보
+let reservations;  //사용자가 예약완료한 정보들
+
+const initData = async () => {
+    //allData 가져오자
+    const getAllData = async (url) => {
+        return fetch(url)
+        .then(response => response.json())
+        .then(data => data)
+        .catch(error => console.error(error.message));
+    }
+
+    //weeklyResevation 가져오자
+    const getWeeklyReservation = async (url) => {
+      try{  
+        const response = await fetch(url);
+        const data = await response.json(); 
+        return data;
+      } catch (error){
+        console.log(error.message);
+      }
+    }
+
+    allData = await getAllData("js/allData.json");
+    console.log(allData);
+
+    weeklyReservation = await getWeeklyReservation("js/weekly-reservation.json");
+    console.log(weeklyReservation);
+}
+
+
 const setPage = (page) => {
     //clear selection
     for (const selectionItemDiv of selectionItemDivs){
@@ -33,4 +66,6 @@ const setPage = (page) => {
 
 }
 setPage(1);
+initData();
+
 
