@@ -63,6 +63,23 @@ const setPage = (page) => {
     pageDivs[page-1].style.display = "block";   //1페이지가 calendar,2페이지가 swt, 3페이지가 srn, 4페이지가 board
 
 }
+
+const cilckDate = (event) => {
+  console.log(event);
+  console.log(event.target.textContent);
+  console.log(event.target.dataset.date); //<div class = "itme" data-date="뭐시기"> 텍스트</div> => 뭐시기
+  newReservation = {  //날짜,세탁기,시간,호실,이름,알림
+    "date": undefined,
+    "washingmachine": undefined,
+    "time": undefined,
+    "room": undefined,
+    "name": undefined,
+    "notification": true,
+  }
+  newReservation.date = event.target.dataset.date;  //클릭한 날짜 정보 새 예약 기록하자
+  setPage(2);   //2페이지로 이동~~
+}
+
 setPage(1);
 initData();
 
