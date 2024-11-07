@@ -13,7 +13,7 @@ const pageDivs = [calendarDiv,selectionRoomNameDiv,selectionWashingmachineTimeDi
 // boardDiv.style.display = "block";
 
 let allData; //모든 초기화 정보 : 세탁기,시간,호실정보
-let weeklyReservation; //미리 요일별로 지정된 예약 정보
+let weeklyReservations; //미리 요일별로 지정된 예약 정보
 let newReservation; //사용자가 입력하고 있는 예약 정보
 let reservations;  //사용자가 예약완료한 정보들
 
@@ -38,10 +38,8 @@ const initData = async () => {
     }
 
     allData = await getAllData("js/allData.json");
-    console.log(allData);
+    weeklyReservations = await getWeeklyReservation("js/weekly-reservation.json");
 
-    weeklyReservation = await getWeeklyReservation("js/weekly-reservation.json");
-    console.log(weeklyReservation);
 }
 
 
