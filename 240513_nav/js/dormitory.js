@@ -8,6 +8,9 @@ const boardDiv = document.querySelector("#board");
 const pageDivs = [calendarDiv, selectionWashingmachineTimeDiv, selectionRoomNameDiv, boardDiv];
 const washingmachineSelect = document.getElementById("washingmachine");
 const timeSelect = document.querySelector("#time");
+const roomSelect = document.getElementById("room"); //휴이거시험문제란느데 selector로 가져오는거
+const nameInput = document.querySelector("#name");
+
 
 
 // calendarDiv.style.display = "block";
@@ -73,6 +76,10 @@ const setPage = (page) => {
     //[다음] 클릭 => 세탁기번호,시간번호를 보관하자 => setPage(3)
 
   } else if (page === 3) { //호실,이름
+    newReservation.washingmachine = washingmachineSelect.value;
+    newReservation.time = timeSelect.value;
+
+    initRoomName();
 
   } else if (page === 4) {  //세탁기 예약 현황표
 
@@ -162,3 +169,32 @@ const initWashingmachineTime = () => {
   washingmachineSelect.onchange = (event) => setTimeSelect(event);
 }
 
+const initRoomName = () => {
+    //모든 호실 입력하자
+    let rooms = allData.room; //allData["room"] 으로 써도 됨 시험문제 나온다는데 "701","801"];
+   //1. createElement -> select.appendChild()
+    // roomSelect.innerHTML = "";
+    // rooms.forEach((room) => {
+    //   let newOption = document.createElement("option");
+    //   newOption.value = room;
+    //   newOption.textContent = `${room}호`; //option value = "701호" > 701호 </option>
+    //   roomSelect.appendChild(newOption);
+
+     //2. String -> select.innerHTML
+    // });
+    // let roomString = "";
+    // rooms.forEach((room) => {
+    //   roomString += `<option value="${room}">${room}호</option>`;
+    // });
+    // roomSelect.innerHTML = roomString;
+    
+    //3.map()
+    roomSelect.innerHTML = rooms.map((room) => `<option value="${room}">${room}호</option>`).join("");
+
+    //이름 초기화 하자
+    nameInput.value = "";
+
+
+    //[다음] 클릭 -> 호실,이름 보관하자 -=> setPage(4)
+    
+}

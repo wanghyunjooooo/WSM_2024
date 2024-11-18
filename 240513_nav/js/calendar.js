@@ -117,13 +117,3 @@ changeMonth(0); //현재 달 출력하자
 
 setCalendar(currentDate);
 
-
-// 모든 예약 완료 버튼을 선택합니다.
-const reservationButtons = document.querySelectorAll('.btn');
-
-// 모든 버튼에 클릭 이벤트를 추가합니다.
-reservationButtons.forEach(button => {
-    button.addEventListener('click', function() {
-        alert('예약 완료');
-    });
-});
