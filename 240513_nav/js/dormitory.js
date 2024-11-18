@@ -128,13 +128,12 @@ const initWashingmachineTime = () => {
         }
       }
   });
-  console.log(allWashingmachineTime);
   // 사용자가 예약한 예약을 보고, 예약된 세탁기와 예약된 시간이 있으면 초기화 항목에서 폐지
   //초기화 항목에서 예약된 시간 뺀 후,모든 시간이 없는 세탁기는 빼자
-
+  let washingmachines = Object.keys(allWashingmachineTime).filter((washingmachine) => //["1","2","3"]
+  allWashingmachineTime[washingmachine].length > 0); //월요일 ["1","3"]
   //세탁기 select에 option 만들어 넣자
   washingmachineSelect.innerHTML = ""; //세탁기 option 없애자
-  let washingmachines = Object.keys(allWashingmachineTime);
   washingmachines.forEach((washingmachine) => {
     
     
