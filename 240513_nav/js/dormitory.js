@@ -9,6 +9,7 @@ const pageDivs = [calendarDiv, selectionWashingmachineTimeDiv, selectionRoomName
 const washingmachineSelect = document.getElementById("washingmachine");
 const timeSelect = document.querySelector("#time");
 
+
 // calendarDiv.style.display = "block";
 // selectionWashingmachineTimeDiv.style.display = "block";
 // selectionRoomNameDiv.style.display= "block";
@@ -92,7 +93,8 @@ const cilckDate = (event) => {
     "name": undefined,
     "notification": true,
   }
-  newReservation.date = event.target.dataset.date;  //클릭한 날짜 정보 새 예약 기록하자
+  let dateString = event.target.dataset.date
+  newReservation.date = new Date(dateString);  //클릭한 날짜 정보 새 예약 기록하자 "년 월 알 " -> 날짜삭제
   setPage(2);   //2페이지로 이동~~
 }
 
@@ -101,6 +103,7 @@ initData();
 
 
 const initWashingmachineTime = () => {
+  // { "1": ["1", "2", "3"], "2": ["1", "2", "3"], "3": ["1", "2", "3"] };
   let allWashingmachineTime = {};
 
   //초기세팅하자
@@ -109,18 +112,33 @@ const initWashingmachineTime = () => {
 
   });
 
-  // { "1": ["1", "2", "3"], "2": ["1", "2", "3"], "3": ["1", "2", "3"] };
   // 클릭한 날짜의 요일 구하자
+  let weekly = newReservation.date.getDay();
+  console.log(weekly);
   // 미리 예약한 예약하 예약을 보고, 예약된 세탁기와 예약된 시간이 이쓰면 초기화 항목에서 빼자
+  weeklyReservations.forEach((weeklyReservation) => {
+      if(weekly === weeklyReservation.weekday){
+        //초기화한 데이터에서 weeklyResercation에 예약된 세탁기 번호의 시간 번호를 빼자
+        const {washingmachine,time} = weeklyReservation;
+        // const washingmachine = weeklyReservation.washingmachine;
+        // const time = weeklyReservation.time;
+        const index = allWashingmachineTime[washingmachine].indexOf(String(time));
+        if(index > -1){
+          allWashingmachineTime[washingmachine].splice(index,1);//그 시간 삭제 하기
+        }
+      }
+  });
+  console.log(allWashingmachineTime);
   // 사용자가 예약한 예약을 보고, 예약된 세탁기와 예약된 시간이 있으면 초기화 항목에서 폐지
   //초기화 항목에서 예약된 시간 뺀 후,모든 시간이 없는 세탁기는 빼자
+
   //세탁기 select에 option 만들어 넣자
-  //시간 select에 option 만들어 넣자
   washingmachineSelect.innerHTML = ""; //세탁기 option 없애자
   let washingmachines = Object.keys(allWashingmachineTime);
   washingmachines.forEach((washingmachine) => {
-
-
+    
+    
+    //시간 select에 option 만들어 넣자
     let newOption = document.createElement("option"); //<option></option>
     newOption.value = washingmachine; //<option value = "세탁기번호"></option>
     newOption.textContent = `${washingmachine}번 세탁기`; //<option value = "세탁기번호">세탁기번호번 세탁기</option>
