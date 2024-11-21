@@ -67,7 +67,11 @@ const setPage = (page) => {
 
   //show page
   pageDivs[page - 1].style.display = "block";   //1페이지가 calendar,2페이지가 swt, 3페이지가 srn, 4페이지가 board
-
+  if (page === 1){
+    //원래는 백엔드에서 resercations 요청해서 가져오자
+    //지금은 백엔드 안배웠으니까 localStorage에서 가져오자
+    
+  }
   if (page === 2) {  //세탁기,시간
 
     // 1,2,3번 세탁기, 1,2,3 시간 초기화
@@ -224,4 +228,12 @@ const initTable = () => {
   });
   boardContainerDiv.innerHTML = tableString;
 
+}
+
+const saveReservations = () => {
+  //원래는 백엔드에 resercations 넘겨서 저장하자
+  //백엔드 안배웠으니까 LocalStorage에 저장하자
+  localStorage.setItem("reservations",JSON.stringify(reservations)); //json 객체 => string
+  //저장완료 창 띄우자
+  alert("저장완료");
 }
